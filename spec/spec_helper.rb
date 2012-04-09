@@ -8,6 +8,16 @@ require 'rspec/autorun'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+# Requires factories defined in spree_core
+require 'spree/core/testing_support/factories'
+
+# include local factories
+Dir["#{File.dirname(__FILE__)}/factories/**/*.rb"].each do |f|
+  fp =  File.expand_path(f)
+  require fp
+end
+
+
 RSpec.configure do |config|
   # ## Mock Framework
   #
@@ -29,4 +39,7 @@ RSpec.configure do |config|
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
+  
+  # Include Spree URL Helpers
+  config.include Spree::UrlHelpers
 end
