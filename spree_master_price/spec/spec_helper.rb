@@ -13,6 +13,12 @@ Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
 # Requires factories defined in spree_core
 require 'spree/core/testing_support/factories'
 
+# include local factories
+Dir["#{File.dirname(__FILE__)}/factories/**/*.rb"].each do |f|
+  fp =  File.expand_path(f)
+  require fp
+end
+
 RSpec.configure do |config|
   # == Mock Framework
   #
