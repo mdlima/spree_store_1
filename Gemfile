@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.4'
+gem 'rails', '3.2.3'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -11,8 +11,8 @@ gem 'sqlite3'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.1.5'
-  gem 'coffee-rails', '~> 3.1.1'
+  # gem 'sass-rails',   '~> 3.1.5'
+  # gem 'coffee-rails', '~> 3.1.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
@@ -43,9 +43,12 @@ group :test do
   gem "autotest-fsevent", "0.2.8"
   gem "autotest-growl", "0.2.16"
   gem 'factory_girl_rails'
+  gem 'ffaker'
+  gem 'shoulda-matchers', '~> 1.0.0'
+  gem 'database_cleaner', '0.7.1'
 end
 
 
-gem 'spree'
+gem 'spree', '1.1.0.rc1'
 gem 'spree_usa_epay'
 gem 'spree_skrill'

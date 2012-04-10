@@ -4,12 +4,19 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 
+#include spree's factories
+require 'spree_core'
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 # Requires factories defined in spree_core
+# require 'database_cleaner'
 require 'spree/core/testing_support/factories'
+# require 'spree/core/testing_support/env'
+# require 'spree/core/url_helpers'
+# require 'paperclip/matchers'
 
 # include local factories
 Dir["#{File.dirname(__FILE__)}/factories/**/*.rb"].each do |f|
@@ -41,5 +48,17 @@ RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
   
   # Include Spree URL Helpers
-  config.include Spree::UrlHelpers
+  # config.include Spree::UrlHelpers
+end
+
+
+# Usage:
+#
+# context "factory" do
+#   it { should have_valid_factory(:address) }
+# end
+RSpec::Matchers.define :have_valid_factory do |factory_name|
+  match do |model|
+    Factory(factory_name).new_record?.should be_false
+  end
 end
