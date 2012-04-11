@@ -7,6 +7,7 @@ FactoryGirl.define do
     height { BigDecimal.new("#{rand(200)}.#{rand(99)}") }
     width  { BigDecimal.new("#{rand(200)}.#{rand(99)}") }
     depth  { BigDecimal.new("#{rand(200)}.#{rand(99)}") }
+    # is_master_price true
     # on_hand 5
 
     # associations:
