@@ -29,6 +29,9 @@ Gem::Specification.new do |s|
   # s.add_development_dependency 'autotest-fsevent', '0.2.4'
   # s.add_development_dependency 'autotest-growl', '0.2.16'
   
+  s.add_development_dependency 'guard-spork', '0.3.2'
+  s.add_development_dependency 'spork', '0.9.0'
+  
   # OS X Specific gems
   s.add_development_dependency 'rb-fsevent', '~> 0.9.1'
   s.add_development_dependency 'growl'
