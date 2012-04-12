@@ -2,9 +2,8 @@ require 'spec_helper'
 
 describe Spree::Variant do
   
-  let!(:variant) { 
-    product = Factory(:product)
-    Factory(:master_price_variant, :count_on_hand => 95, :product => product) }
+  let(:product) { Factory(:product) }
+  let!(:variant) { Factory(:master_price_variant, :count_on_hand => 95, :product => product) }
 
   before(:each) do
     reset_spree_preferences
@@ -159,11 +158,16 @@ describe Spree::Variant do
   context "when it's a master_price variant" do
     
     it "should use the master variant price" do
-      variant.price = variant.product.price + 1
-      
       variant.is_master_price = true
-      
+      variant.price = variant.product.price + 1
       variant.price.should == variant.product.price
+    end
+    
+    it "should use its own price if it's the master variant" do
+      product.master.is_master_price = true
+      product.price = 10
+      product.price.should == 10
+      product.master.price.should == 10
     end
     
   end

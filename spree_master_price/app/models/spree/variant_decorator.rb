@@ -4,8 +4,9 @@ module Spree
     attr_accessible :is_master_price
     
     def price
-      return self[:price] unless is_master_price?
-      return product.master.price unless is_master?
+      return product.master.price if is_master_price? && !is_master?
+
+      self[:price]
 
     end
 
