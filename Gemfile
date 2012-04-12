@@ -38,10 +38,10 @@ group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
   gem 'rspec-rails'
-  gem 'autotest', "4.4.6"
-  gem "autotest-rails-pure", "4.1.2"
-  gem "autotest-fsevent", "0.2.8"
-  gem "autotest-growl", "0.2.16"
+  # gem 'autotest', "4.4.6"
+  # gem "autotest-rails-pure", "4.1.2"
+  # gem "autotest-fsevent", "0.2.8"
+  # gem "autotest-growl", "0.2.16"
   gem 'factory_girl_rails'
   gem 'ffaker'
   gem 'shoulda-matchers', '~> 1.0.0'
@@ -52,3 +52,4 @@ end
 gem 'spree', '1.1.0.rc1'
 gem 'spree_usa_epay'
 gem 'spree_skrill'
+gem 'spree_master_price', :path => 'spree_master_price'
